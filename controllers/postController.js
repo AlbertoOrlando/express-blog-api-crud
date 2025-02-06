@@ -43,4 +43,44 @@ function show(req, res) {
     res.json(post);
 }
 
-module.exports = { index, show};
+function store(req, res) {
+    // copiamo la logica della store
+}
+
+function update(req, res) {
+    // copiamo la logica dell'update
+}
+
+function destroy(req, res) {
+
+    // recuperiamo l'id e trasformiamolo in dato numerico
+    const id = parseInt(req.params.id)
+
+    // cerchiamo il post tramite id
+    const post = posts.find(post => post.id === id);
+
+    // controllo se il post è presente o meno
+    if(!post){
+
+        // restituzione errore
+        res.status(404)
+
+        // restituzione errore in formato json
+        return res.json({
+            error: "Not Found",
+            message : "Post non trovato"
+        })
+    }
+    // cancello il post trovato
+    posts.splice(posts.indexOf(posts), 1);
+
+    // stampo in console i posts aggiornati
+    console.log(posts);
+    
+    // ritorno la risposta positiva di avvenuta cancellazione
+    res.sendStatus(204);
+}
+
+
+
+module.exports = { index, show, store, update, destroy };
