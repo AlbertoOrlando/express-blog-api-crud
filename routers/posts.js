@@ -1,14 +1,10 @@
 const express = require("express")
 const router = express.Router();
+const postController = require("../controllers/postController")
 
+router.get("/", postController.index);
 
-router.get("/", function (req, res) {
-    res.json(posts)
-});
-
-router.get("/:id", function(req, res) {
-    res.json(posts[req.params.id])
-});
+router.get("/:id", postController.show);
 
 router.post("/", function(req, res) {
     res.send("creiamo un nuovo post")

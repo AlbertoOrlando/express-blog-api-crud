@@ -42,3 +42,5 @@ function show(req, res) {
     // restituiamo in formato json
     res.json(post);
 }
+
+module.exports = { index, show};
