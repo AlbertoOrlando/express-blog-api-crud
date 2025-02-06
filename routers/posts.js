@@ -18,8 +18,6 @@ router.patch("/:id", function(req, res) {
     res.send("modifica parziale post " + req.params.id)
 });
 
-router.delete("/:id", function(req, res) {
-    res.send("cancelliamo il post " + req.params.id)
-});
+router.delete("/:id", postController.destroy);
 
 module.exports = router;
