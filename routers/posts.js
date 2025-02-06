@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router();
-const posts = require("../data/data_posts")
+
 
 router.get("/", function (req, res) {
     res.json(posts)
