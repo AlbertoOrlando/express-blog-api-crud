@@ -6,17 +6,11 @@ router.get("/", postController.index);
 
 router.get("/:id", postController.show);
 
-router.post("/", function(req, res) {
-    res.send("creiamo un nuovo post")
-});
+router.post("/", postController.store);
 
-router.put("/:id", function(req, res) {
-    res.send("modifica integrale post " + req.params.id)
-});
+router.put("/:id", postController.update);
 
-router.patch("/:id", function(req, res) {
-    res.send("modifica parziale post " + req.params.id)
-});
+router.patch("/:id", postController.modify);
 
 router.delete("/:id", postController.destroy);
 
