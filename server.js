@@ -9,7 +9,7 @@ const notFound = require("./middleware/notFound")
 
 app.use(express.static("public"));
 
-app.use(corsa({
+app.use(cors({
     origin: "http://localhost:5174/"
 }))
 
