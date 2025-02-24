@@ -6,7 +6,7 @@ const postsRouter = require("./routers/posts")
 const errorHandler = require("./middleware/errorHandler")
 const notFound = require("./middleware/notFound")
 
-
+app.use(express.json());
 app.use(express.static("public"));
 
 app.use(cors({ origin: 'http://localhost:5173' }))
